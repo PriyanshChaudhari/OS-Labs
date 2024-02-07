@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Prompt the user to enter a username
+read -p "Enter the username to search: " username
+
+# Check if the user exists
+if id "$username" &>/dev/null; then
+    echo "User $username exists on the system."
+else
+    echo "User $username does not exist on the system."
+fi
