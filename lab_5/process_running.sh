@@ -1,6 +1,6 @@
 pids=(`pidof $1`)
 
-if [[ -n "$pids"  ]];
+if [[ -n "$pids" ]];
 then
 	echo "$pids"
 else

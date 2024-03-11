@@ -1,6 +1,5 @@
 address_book="address_book.txt"
 
-# Function to display menu
 display_menu() {
     echo "Address Book Program"
     echo "1. Search address book"
@@ -12,14 +11,12 @@ display_menu() {
     echo "7. Exit"
 }
 
-# Function to search for a contact
 search_contact() {
     echo "Enter the name to search for:"
     read name
     grep -i "$name" "$address_book"
 }
 
-# Function to add a new contact
 add_contact() {
     echo "Enter Name:"
     read name
@@ -32,7 +29,6 @@ add_contact() {
     echo "Enter City:"
     read city
 
-    # Check for duplicates
     if grep -i "$name" "$address_book" > /dev/null; then
         echo "Entry already exists!"
     else
@@ -41,7 +37,6 @@ add_contact() {
     fi
 }
 
-# Function to remove a contact
 remove_contact() {
     echo "Enter the name to remove:"
     read name
@@ -49,7 +44,6 @@ remove_contact() {
     echo "Entry removed successfully."
 }
 
-# Function to edit a contact
 edit_contact() {
     echo "Enter the name to edit:"
     read old_name
@@ -68,20 +62,17 @@ edit_contact() {
     echo "Entry edited successfully."
 }
 
-# Function to count total entries
 count_entries() {
     echo "Total count of entries:"
     cat "$address_book" | wc -l
 }
 
-# Function to list people living in a city
 list_people_in_city() {
     echo "Enter the city name:"
     read city
     grep -i "| $city$" "$address_book"
 }
 
-# Main program
 while true; do
     display_menu
     echo "Enter your choice:"
